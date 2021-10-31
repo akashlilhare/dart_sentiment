@@ -1,7 +1,7 @@
 name: dart_sentiment
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/akashlilhare/dart_sentiment
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* A easy to use text and emoji's sentiment analyzer written in dart
