@@ -13,7 +13,10 @@ enum LanguageCode { english, italian, french, german }
 class Sentiment {
   /// Analysis function
   ///
-  /// syntax `analysis(String text,{Map customLang, bool emoji = false, String languageCode})`
+  /// syntax `analysis(String text,
+  ///       {bool emoji = false, LanguageCode languageCode = LanguageCode.english})`
+  ///
+  /// `enum LanguageCode { english, italian, french, german }`
   ///
   /// return `Map<String, dynamic>`
   ///
@@ -21,13 +24,12 @@ class Sentiment {
   /// ```dart
   ///  final sentiment = Sentiment();
   ///  print(sentiment.analysis('i hate you piece of shit 💩'));
-  /// // {score: -7, comparative: -1.1666666666666667, words: [i, hate, you, piece, of, shit], good words: [], badword: [[hate, -3], [shit, -4]]}
+  /// // {score: -7, comparative: -1.1666666666666667, tokens: [i, hate, you, piece, of, shit], positive: [], negative: [[hate, -3], [shit, -4]]}
   ///```
   Map<String, dynamic> analysis(String text,
       {bool emoji = false, LanguageCode languageCode = LanguageCode.english}) {
     try {
       if (text.isEmpty) throw ('err');
-      // languageCode ??= LanguageCode.english;
       Map<dynamic, int> sentiments = {};
       if (emoji) sentiments.addAll(emojis);
 
@@ -88,9 +90,9 @@ class Sentiment {
       var result = {
         'score': score,
         'comparative': wordlist.isNotEmpty ? score / wordlist.length : 0,
-        'words': wordlist,
-        'good words': goodwords,
-        'badword': badwords
+        'tokens': wordlist,
+        'positive': goodwords,
+        'negative': badwords
       };
       return result;
     } catch (e) {
