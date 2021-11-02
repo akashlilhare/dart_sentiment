@@ -5,7 +5,6 @@ import 'lang/french/french.dart';
 import 'lang/german/german.dart';
 import 'lang/italian/italian.dart';
 
-
 /// Language code
 enum LanguageCode { english, italian, french, german }
 
@@ -13,19 +12,24 @@ enum LanguageCode { english, italian, french, german }
 class Sentiment {
   /// Analysis function
   ///
-  /// syntax `analysis(String text,
-  ///       {bool emoji = false, LanguageCode languageCode = LanguageCode.english})`
+  /// syntax:
   ///
-  /// `enum LanguageCode { english, italian, french, german }`
-  ///
+  /// ```dart
+  ///   analysis(String text,{bool emoji = false, LanguageCode languageCode = LanguageCode.english})
+  ///```
+  ///<br />
   /// return `Map<String, dynamic>`
   ///
+  ///<br />
   /// example:
   /// ```dart
-  ///  final sentiment = Sentiment();
-  ///  print(sentiment.analysis('i hate you piece of shit 💩'));
-  /// // {score: -7, comparative: -1.1666666666666667, tokens: [i, hate, you, piece, of, shit], positive: [], negative: [[hate, -3], [shit, -4]]}
+  ///   final sentiment = Sentiment();
+  ///   print(sentiment.analysis("The cake she made was terrible 😐", emoji: true));
+  ///   // {score: -5, comparative: -0.7142857142857143, tokens: [the, cake, she, made, was, terrible, 😐], positive: [], negative: [[terrible, -3], [😐, -2]]}
+  ///   print(sentiment.analysis("I love cats, but I am allergic to them.",));
+  ///   //{score: 1, comparative: 0.1111111111111111, tokens: [i, love, cats, but, i, am, allergic, to, them], positive: [[love, 3]], negative: [[allergic, -2]]}
   ///```
+
   Map<String, dynamic> analysis(String text,
       {bool emoji = false, LanguageCode languageCode = LanguageCode.english}) {
     try {
@@ -34,6 +38,7 @@ class Sentiment {
       if (emoji) sentiments.addAll(emojis);
 
       switch (languageCode) {
+
         /// english
         case LanguageCode.english:
           sentiments.addAll(en);
@@ -100,5 +105,3 @@ class Sentiment {
     }
   }
 }
-
-
