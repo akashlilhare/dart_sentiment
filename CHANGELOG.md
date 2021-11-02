@@ -9,3 +9,7 @@
 ### 0.0.3
 
 * Example updated
+
+### 0.0.5
+
+* First stable release

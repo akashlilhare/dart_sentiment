@@ -1,26 +1,26 @@
+
 # Dart Sentiment
 
 ![Flutter Community: dart_sentiment](https://fluttercommunity.dev/_github/header/dart_sentiment)
 
+
 ![pub package](https://img.shields.io/pub/v/dart_sentiment.svg)      ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
 
 #### AFINN-based sentiment analysis for dart
 
-Sentiment is a dart package that uses
+Dart Sentiment is a dart package that uses
 the  [AFINN-165](https://github.com/fnielsen/afinn/blob/master/afinn/data/AFINN-en-165.txt)
 wordlist
 and  [Emoji Sentiment Ranking](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144296)
 to perform  [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis)  on arbitrary
-blocks of input text. Sentiment provides several things:
-
+blocks of input text. Dart Sentiment provides several things:
 - Provide Language support for English, Italian, French and German.
 - Provide support for various emojis.
 - Based on analysis of text, provide an integer value in the range -n to +n (see details below)
 
 ## Installation
-
 add following dependency to your `pubspec.yaml`
-
 ```  yaml
 
 dependencies:  
@@ -29,7 +29,6 @@ dependencies:
  ```  
 
 ## Example
-
 ```dart  
 import 'package:dart_sentiment/dart_sentiment.dart';  
   
@@ -59,7 +58,7 @@ Param | Description
 
 ## How it works
 
-### [](https://github.com/thisandagain/sentiment#afinn)AFINN
+### AFINN
 
 AFINN is a list of words rated for valence with an integer between minus five (negative) and plus
 five (positive). Sentiment analysis is performed by cross-checking the string tokens (words, emojis)
