@@ -47,9 +47,10 @@ emoji: true, languageCode: LanguageCode.french)); }
   
 ```
 ### Function defination
-Param | Description  
--------- | ----- `String text` | Input phrase to analyze  
-`bool emoji = false` | Input emoji is present in the phrase to analyze  
+Param | Description
+-------- | ----- 
+`String text` | Input phrase to analyze
+`bool emoji = false` | Input emoji is present in the phrase to analyze
 `LanguageCode languageCode = LanguageCode.english` |Language to use for sentiment analysis. ` LanguageCode { english, italian, french, german }`
 
 ## How it works
@@ -66,8 +67,8 @@ simply:  `sum of each token / number of tokens`. So for example let's take the f
 That string results in the following:
 
 ```dart    
-{  
-	score: 1, 
+{
+    score: 1, 
 	comparative: 0.1111111111111111,    
     tokens: [    
        "i",    
@@ -81,7 +82,7 @@ That string results in the following:
        "them"    
     ],    
     positive: [[love, 3]],    
-    negative: [[allergic, 2]]    
+    negative: [[allergic, 2]]
 } 
 ``` 
 - Returned Objects
