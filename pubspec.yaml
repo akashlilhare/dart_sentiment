@@ -1,6 +1,6 @@
 name: dart_sentiment
 description: Dart Sentiment is a dart module that uses the AFINN-165 wordlist and Emoji Sentiment Ranking to perform sentiment analysis on arbitrary blocks of input text.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/akashlilhare/dart_sentiment
 
 environment:
