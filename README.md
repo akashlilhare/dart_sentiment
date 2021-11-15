@@ -73,8 +73,8 @@ That string results in the following:
 
 ```dart
 {
-    score: 1,
-	comparative: 0.1111111111111111,
+    score: 1, 
+	comparative: 0.1111111111111111,  
     tokens: [    
        "i",    
        "love",    
