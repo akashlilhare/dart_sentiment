@@ -17,3 +17,7 @@
 ## 0.0.7
 
 * Example updated
+
+## 0.0.8
+
+* fixed issue: https://github.com/akashlilhare/dart_sentiment/issues/1

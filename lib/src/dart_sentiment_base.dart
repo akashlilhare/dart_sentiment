@@ -30,6 +30,37 @@ class Sentiment {
   ///   //{score: 1, comparative: 0.1111111111111111, tokens: [i, love, cats, but, i, am, allergic, to, them], positive: [[love, 3]], negative: [[allergic, -2]]}
   ///```
 
+  List<String> filterText(String text, bool emoji) {
+    List<String> duList =     emoji
+        ? text
+            .toLowerCase()
+            .replaceAll('\n', ' ')
+            .replaceAll('s\s+', ' ')
+            .replaceAll(RegExp(r'[.,\/#!?$%\^&\*;:{}=_`\"~()]'), '')
+            .trim()
+            .split(' ')
+        : text
+            .toLowerCase()
+            .replaceAll('\n', ' ')
+            .replaceAll('s\s+', ' ')
+            .replaceAll(RegExp(r'[.,\/#!?$%\^&\*;:{}=_`\"~()]'), '')
+            .removemoji
+            .trim()
+            .split(' ');
+
+    Set<String> duSet ={};
+    for (var element in duList) {
+      duSet.add(element);
+    }
+
+    List<String> analysedList = [];
+    for (var element in duSet) {
+      analysedList.add(element);
+    }
+
+    return analysedList;
+  }
+
   Map<String, dynamic> analysis(String text,
       {bool emoji = false, LanguageCode languageCode = LanguageCode.english}) {
     try {
@@ -44,12 +75,12 @@ class Sentiment {
           sentiments.addAll(en);
           break;
 
-        /// italian
+      /// italian
         case LanguageCode.italian:
           sentiments.addAll(it);
           break;
 
-        /// french
+      /// french
         case LanguageCode.french:
           sentiments.addAll(fr);
           break;
@@ -64,22 +95,7 @@ class Sentiment {
 
       var score = 0;
       var goodwords = [], badwords = [];
-      var wordlist = emoji
-          ? text
-              .toLowerCase()
-              .replaceAll('\n', ' ')
-              .replaceAll('s\s+', ' ')
-              .replaceAll(RegExp(r'[.,\/#!?$%\^&\*;:{}=_`\"~()]'), '')
-              .trim()
-              .split(' ')
-          : text
-              .toLowerCase()
-              .replaceAll('\n', ' ')
-              .replaceAll('s\s+', ' ')
-              .replaceAll(RegExp(r'[.,\/#!?$%\^&\*;:{}=_`\"~()]'), '')
-              .removemoji
-              .trim()
-              .split(' ');
+      var wordlist = filterText(text, emoji);
       for (var i = 0; i < wordlist.length; i++) {
         sentiments.forEach((key, value) {
           if (key == wordlist[i]) {

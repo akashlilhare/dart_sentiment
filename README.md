@@ -29,22 +29,27 @@ dependencies:
    
  ```   
 ## Example
-```dart import 'package:dart_sentiment/dart_sentiment.dart';    
- void main() {    
-  final sentiment = Sentiment();    
+```dart
+
+ import 'package:dart_sentiment/dart_sentiment.dart';    
+ void main() {
+ 
+	 final sentiment = Sentiment();    
     
-print(sentiment.analysis("The cake she made was terrible 😐"));    
+	 print(sentiment.analysis("The cake she made was terrible 😐"));    
     
-print(sentiment.analysis("The cake she made was terrible 😐", emoji: true));    
+	 print(sentiment.analysis("The cake she made was terrible 😐", emoji: true));    
     
-  print(sentiment.analysis("I love cats, but I am allergic to them.",));    
+	 print(sentiment.analysis("I love cats, but I am allergic to them.",));    
     
-  print(sentiment.analysis("J'adore les chats, mais j'y suis allergique.",    
-  languageCode: LanguageCode.french));    
+	 print(sentiment.analysis("J'adore les chats, mais j'y suis allergique.",    
+	 languageCode: LanguageCode.french));    
     
-print(sentiment.analysis("Le gâteau qu'elle a fait était horrible 😐",    
-emoji: true, languageCode: LanguageCode.french)); }  
-  
+	print(sentiment.analysis("Le gâteau qu'elle a fait était horrible 😐",    
+	emoji: true, languageCode: LanguageCode.french)); 
+
+}  
+
 ```
 ### Function defination
 Param | Description
@@ -66,10 +71,10 @@ simply:  `sum of each token / number of tokens`. So for example let's take the f
 
 That string results in the following:
 
-```dart    
+```dart
 {
-    score: 1, 
-	comparative: 0.1111111111111111,    
+    score: 1,
+	comparative: 0.1111111111111111,
     tokens: [    
        "i",    
        "love",    
@@ -80,8 +85,8 @@ That string results in the following:
        "allergic",    
        "to",    
        "them"    
-    ],    
-    positive: [[love, 3]],    
+    ],
+    positive: [[love, 3]], 
     negative: [[allergic, 2]]
 } 
 ``` 
