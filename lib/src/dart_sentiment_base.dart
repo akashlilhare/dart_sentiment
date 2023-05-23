@@ -31,7 +31,7 @@ class Sentiment {
   ///```
 
   List<String> filterText(String text, bool emoji) {
-    List<String> duList =     emoji
+    List<String> duList = emoji
         ? text
             .toLowerCase()
             .replaceAll('\n', ' ')
@@ -48,7 +48,7 @@ class Sentiment {
             .trim()
             .split(' ');
 
-    Set<String> duSet ={};
+    Set<String> duSet = {};
     for (var element in duList) {
       duSet.add(element);
     }
